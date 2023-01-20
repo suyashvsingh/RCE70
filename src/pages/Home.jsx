@@ -32,7 +32,7 @@ const Home = () => {
     };
 
     let response = await axios.request(reqOptions);
-    console.log(response.data);
+    console.log(response.data.data);
 
     setResult(response.data.data);
     setLoading(false);
@@ -56,7 +56,7 @@ const Home = () => {
             />
             <div className="grid grid-rows-2 gap-4">
               <textarea
-                className="w-full bg-white p-2 font-light text-sm h-full resize-none rounded-md "
+                className="w-full bg-white p-2 font-light text-sm h-full resize-none rounded-md"
                 placeholder="Input"
               ></textarea>
               {loading && (
@@ -65,8 +65,8 @@ const Home = () => {
                 </div>
               )}
               {loading || (
-                <div className="w-full bg-white p-2 font-light text-sm h-full rounded-md">
-                  {result}
+                <div className="w-full bg-white p-2 font-light text-sm h-full rounded-md overflow-auto">
+                  <pre>{result}</pre>
                 </div>
               )}
             </div>
