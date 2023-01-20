@@ -25,13 +25,15 @@ const Home = () => {
     });
 
     let reqOptions = {
-      url: "http://157.245.104.238/v1/code/exe-JS",
+      url: "/api/v1/code/exe-js/",
       method: "POST",
       headers: headersList,
       data: bodyContent,
     };
 
     let response = await axios.request(reqOptions);
+    console.log(response.data);
+
     setResult(response.data.data);
     setLoading(false);
   };
