@@ -1,12 +1,8 @@
 import React, { useState } from "react";
-import Editor from "react-simple-code-editor";
-import { highlight, languages } from "prismjs/components/prism-core";
-import "prismjs/components/prism-clike";
-import "prismjs/components/prism-javascript";
-import "prismjs/themes/prism.css";
 import axios from "axios";
 import ClipLoader from "react-spinners/ClipLoader";
 import { BsFillPlayFill } from "react-icons/bs";
+import Editor from "@monaco-editor/react";
 
 const Home = () => {
   const [code, setCode] = useState("");
@@ -43,17 +39,22 @@ const Home = () => {
       <div className="p-8 h-full">
         <div className="flex flex-col h-full justify-between">
           <div className="grid grid-cols-2 gap-4 h-full">
-            <Editor
-              className="bg-white rounded-md"
-              value={code}
-              onValueChange={(code) => setCode(code)}
-              highlight={(code) => highlight(code, languages.js)}
-              padding={10}
-              style={{
-                fontFamily: '"Fira code", "Fira Mono", monospace',
-                fontSize: 12,
-              }}
-            />
+            <div className="rounded p-4 bg-white">
+              <Editor
+                height={"100%"}
+                language="javascript"
+                value={code}
+                onChange={(value) => setCode(value)}
+                options={{
+                  fontFamily: "Fira Code",
+                  fontSize: 12,
+                  scrollBeyondLastLine: false,
+                  minimap: {
+                    enabled: false,
+                  },
+                }}
+              />
+            </div>
             <div className="grid grid-rows-2 gap-4">
               <textarea
                 className="w-full bg-white p-2 font-light text-sm h-full resize-none rounded-md"
