@@ -8,6 +8,7 @@ const Home = () => {
   const [code, setCode] = useState("");
   const [result, setResult] = useState("");
   const [loading, setLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState("javascript");
 
   const onClickSubmit = async () => {
     setLoading(true);
@@ -38,24 +39,53 @@ const Home = () => {
     <section className=" bg-slate-400 h-screen">
       <div className="p-8 h-full">
         <div className="flex flex-col h-full justify-between">
-          <div className="grid grid-cols-2 gap-4 h-full">
-            <div className="rounded p-4 bg-white">
-              <Editor
-                height={"100%"}
-                language="javascript"
-                value={code}
-                onChange={(value) => setCode(value)}
-                options={{
-                  fontFamily: "Fira Code",
-                  fontSize: 12,
-                  scrollBeyondLastLine: false,
-                  minimap: {
-                    enabled: false,
-                  },
-                }}
-              />
+          <div className="grid grid-cols-2 gap-2 h-full">
+            <div className="flex flex-col gap-2">
+              <div className="flex gap-2 items-center ">
+                <div>Select language:</div>
+                <div
+                  className="langauge-selector"
+                  onClick={() => setSelectedLanguage("c++")}
+                >
+                  C++
+                </div>
+                <div
+                  className="langauge-selector"
+                  onClick={() => setSelectedLanguage("javascript")}
+                >
+                  JavaScript
+                </div>
+                <div
+                  className="langauge-selector"
+                  onClick={() => setSelectedLanguage("python")}
+                >
+                  Python
+                </div>
+                <div
+                  className="langauge-selector"
+                  onClick={() => setSelectedLanguage("go")}
+                >
+                  Go
+                </div>
+              </div>
+              <div className="rounded p-4 bg-white flex-1">
+                <Editor
+                  height={"100%"}
+                  language={selectedLanguage}
+                  value={code}
+                  onChange={(value) => setCode(value)}
+                  options={{
+                    fontFamily: "Fira Code",
+                    fontSize: 12,
+                    scrollBeyondLastLine: false,
+                    minimap: {
+                      enabled: false,
+                    },
+                  }}
+                />
+              </div>
             </div>
-            <div className="grid grid-rows-2 gap-4">
+            <div className="grid grid-rows-2 gap-2">
               <textarea
                 className="w-full bg-white p-2 font-light text-sm h-full resize-none rounded-md"
                 placeholder="Input"

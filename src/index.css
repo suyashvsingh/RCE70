@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  .langauge-selector {
+    @apply bg-slate-200 rounded py-1 px-2 cursor-pointer;
+  }
+}
+
 body {
   font-family: "fira code";
 }
@@ -10,4 +16,3 @@ textarea {
   border: none;
   outline: none;
 }
-  
