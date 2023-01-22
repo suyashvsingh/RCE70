@@ -1,0 +1,8 @@
+node_modules
+dockerfile
+.env
+.gitignore
+README.md
+code.js
+input.txt
+output.txt
