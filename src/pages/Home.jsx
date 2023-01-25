@@ -6,6 +6,7 @@ import selectStyle from "../styles/selectStyle";
 import languages from "../data/languages";
 import EditorComponent from "../components/EditorComponent";
 import runCode from "../utils/runCode";
+import toast from "react-hot-toast";
 
 const Home = () => {
   const [code, setCode] = useState("");
@@ -23,7 +24,17 @@ const Home = () => {
       const response = await runCode(code, selectedLanguage, input);
       setResult(response.data.data);
     } catch (error) {
-      console.log(error);
+      // toast with duration
+      toast.error("Error", {
+        duration: 1000,
+        // height
+        style: {
+          borderRadius: "10px",
+          background: "#1c2333",
+          color: "#fff",
+        },
+        className: "h-10",
+      });
       setResult(error);
     }
     setLoading(false);
@@ -37,10 +48,7 @@ const Home = () => {
           options={languages}
           formatOptionLabel={(language) => (
             <div className="flex gap-2 items-center ">
-              <img
-                src={`/src/images/${language.value}.png`}
-                className="w-4 h-4"
-              />
+              <img src={`images/${language.value}.png`} className="w-4 h-4" />
               <span>{language.label}</span>
             </div>
           )}
