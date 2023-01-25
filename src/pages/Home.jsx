@@ -19,8 +19,13 @@ const Home = () => {
 
   const onClickSubmit = async () => {
     setLoading(true);
-    const response = await runCode(code, selectedLanguage, input);
-    setResult(response.data.data);
+    try {
+      const response = await runCode(code, selectedLanguage, input);
+      setResult(response.data.data);
+    } catch (error) {
+      console.log(error);
+      setResult(error);
+    }
     setLoading(false);
   };
 
@@ -60,7 +65,7 @@ const Home = () => {
       <div className="rounded-xl w-full h-full">
         {loading ? (
           <div className="flex justify-center items-center h-full w-full bg-[#1c2333] rounded-xl">
-            <ClipLoader />
+            <ClipLoader color="white" />
           </div>
         ) : (
           <textarea
