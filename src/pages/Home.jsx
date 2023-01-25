@@ -6,7 +6,7 @@ import selectStyle from "../styles/selectStyle";
 import languages from "../data/languages";
 import EditorComponent from "../components/EditorComponent";
 import runCode from "../utils/runCode";
-import toast from "react-hot-toast";
+import { toast } from "react-toastify";
 
 const Home = () => {
   const [code, setCode] = useState("");
@@ -17,24 +17,27 @@ const Home = () => {
     value: "js",
     label: "JavaScript",
   });
-
+  const toastOptions = {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "dark",
+  };
   const onClickSubmit = async () => {
     setLoading(true);
     try {
       const response = await runCode(code, selectedLanguage, input);
       setResult(response.data.data);
+      if (response.data.status === true) {
+        toast.success("Code executed succesfully", toastOptions);
+      }
     } catch (error) {
       // toast with duration
-      toast.error("Error", {
-        duration: 1000,
-        // height
-        style: {
-          borderRadius: "10px",
-          background: "#1c2333",
-          color: "#fff",
-        },
-        className: "h-10",
-      });
+      toast.error("Code executed Failed", toastOptions);
       setResult(error);
     }
     setLoading(false);
