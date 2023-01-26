@@ -9,8 +9,9 @@
 }
 
 body {
-  font-family: "fira code";
+  font-family: "Source Code Pro", monospace;
   color: white;
+  font-stretch: expanded;
 }
 
 textarea {

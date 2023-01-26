@@ -1,34 +1,39 @@
 import { useState } from "react";
-import ClipLoader from "react-spinners/ClipLoader";
-import { BsFillPlayFill } from "react-icons/bs";
-import Select from "react-select";
-import selectStyle from "../styles/selectStyle";
-import languages from "../data/languages";
+import toast from "react-hot-toast";
 import EditorComponent from "../components/EditorComponent";
+import SelectComponent from "../components/SelectComponent";
+import Loading from "../components/Loading";
+import OuptutTextArea from "../components/OutputTextArea";
+import InputTextArea from "../components/InputTextArea";
+import RunButton from "../components/RunButton";
 import runCode from "../utils/runCode";
-import { toast } from "react-toastify";
-import toastOptions from "../styles/toastOptions";
+import boilerplate from "../data/boilerplate";
+import toastStyles from "../styles/toastStyle";
 
 const Home = () => {
-  const [code, setCode] = useState("");
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
   const [selectedLanguage, setSelectedLanguage] = useState({
-    value: "js",
+    value: "javascript",
     label: "JavaScript",
   });
+  const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
 
   const onClickSubmit = async () => {
+    setError(false);
+    toast.dismiss();
     setLoading(true);
     try {
       const response = await runCode(code, selectedLanguage, input);
       if (response.data.status === true) {
-        toast.success("Code executed", toastOptions);
+        toast.success("Code executed", toastStyles);
         setResult(response.data.data);
       }
     } catch (error) {
-      toast.error("Code execution failed", toastOptions);
+      setError(true);
+      toast.error("Code execution failed", toastStyles);
       setResult(error);
     }
     setLoading(false);
@@ -37,17 +42,10 @@ const Home = () => {
   return (
     <div className="h-screen gap-1 p-3 grid grid-cols-2 grid-rows-[3em_calc(48%-3em)_calc(48%-3em)_3.5em] bg-[#0f1327]">
       <div className="flex gap-2 items-center col-span-2">
-        <Select
-          value={selectedLanguage}
-          options={languages}
-          formatOptionLabel={(language) => (
-            <div className="flex gap-2 items-center ">
-              <img src={`images/${language.value}.png`} className="w-4 h-4" />
-              <span>{language.label}</span>
-            </div>
-          )}
-          onChange={(selectedOption) => setSelectedLanguage(selectedOption)}
-          styles={selectStyle}
+        <SelectComponent
+          selectedLanguage={selectedLanguage}
+          setSelectedLanguage={setSelectedLanguage}
+          setCode={setCode}
         />
       </div>
       <div className="h-full p-3 rounded-xl col-span-2 md:row-span-2 md:col-span-1 bg-[#1c2333]">
@@ -57,34 +55,15 @@ const Home = () => {
           selectedLanguage={selectedLanguage}
         />
       </div>
-      <textarea
-        className="block p-3 rounded-xl w-full h-full resize-none bg-[#1c2333]"
-        placeholder="Input"
-        spellCheck="false"
-        value={input}
-        onChange={(e) => setInput(e.target.value)}
-      ></textarea>
+      <InputTextArea input={input} setInput={setInput} />
       <div className="rounded-xl w-full h-full">
         {loading ? (
-          <div className="flex justify-center items-center h-full w-full bg-[#1c2333] rounded-xl">
-            <ClipLoader color="white" />
-          </div>
+          <Loading />
         ) : (
-          <textarea
-            className="block p-3 rounded-xl w-full h-full resize-none bg-[#1c2333]"
-            readOnly
-            placeholder="Output"
-            defaultValue={result}
-          ></textarea>
+          <OuptutTextArea result={result} error={error} />
         )}
       </div>
-      <button
-        onClick={onClickSubmit}
-        className="bg-green-700 flex-grow-0 px-4 py-2 text-white rounded-xl font-medium text-sm mt-4 w-fit ml-auto hover:bg-green-800 flex items-center justify-center gap-1 col-span-2"
-      >
-        Run
-        <BsFillPlayFill />
-      </button>
+      <RunButton onClickSubmit={onClickSubmit} />
     </div>
   );
 };

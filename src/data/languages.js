@@ -1,6 +1,6 @@
 const languages = [
-  { value: "js", label: "JavaScript" },
-  { value: "py", label: "Python" },
+  { value: "javascript", label: "JavaScript" },
+  { value: "python", label: "Python" },
   { value: "cpp", label: "C++" },
   { value: "c", label: "C" },
   { value: "go", label: "Go" },

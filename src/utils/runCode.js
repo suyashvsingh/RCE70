@@ -17,11 +17,7 @@ const runCode = async (code, selectedLanguage, input) => {
       data: bodyContent,
     };
     let response = await axios.request(reqOptions);
-    if (response.data.status === true) {
-      return response;
-    } else {
-      throw new Error(error);
-    }
+    return response;
   } catch (error) {
     throw new Error(error.response.data.data);
   }

@@ -1,4 +1,3 @@
-import React from "react";
 import Editor from "@monaco-editor/react";
 import { customTheme, optionsEditor } from "../styles/editorStyles";
 
@@ -7,7 +6,7 @@ const EditorComponent = ({ code, setCode, selectedLanguage }) => {
     <Editor
       height={"100%"}
       width={"100%"}
-      language={selectedLanguage.label.toLocaleLowerCase()}
+      language={selectedLanguage.value}
       value={code}
       onChange={(value) => setCode(value)}
       beforeMount={(monaco) => {
