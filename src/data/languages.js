@@ -4,6 +4,7 @@ const languages = [
   { value: "cpp", label: "C++" },
   { value: "c", label: "C" },
   { value: "go", label: "Go" },
+  { value: "java", label: "Java" },
 ];
 
 export default languages;
