@@ -1,4 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocalStorage } from "../../hooks/useLocalStorage";
+import { useLocalStorageWithDelay } from "../../hooks/useLocalStorageWithDelay";
 import toast from "react-hot-toast";
 import EditorComponent from "../components/EditorComponent";
 import SelectComponent from "../components/SelectComponent";
@@ -15,11 +17,24 @@ const Home = () => {
   const [result, setResult] = useState("");
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState({
+
+  //selected language from localStorage using custom hook
+  const [selectedLanguage, setSelectedLanguage] = useLocalStorage("selected-language",{
     value: "javascript",
     label: "JavaScript",
   });
-  const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
+
+  //localStorage code using custom hook saves code after every 10 seconds
+  const [code, setCode] = useLocalStorageWithDelay(selectedLanguage.value, boilerplate[selectedLanguage.value]);
+
+  //changing code if language is changed
+  useEffect(() => {
+    let storedCode = localStorage.getItem(selectedLanguage.value);
+    if (storedCode) {
+      setCode(JSON.parse(storedCode));
+    }
+    else setCode(boilerplate[selectedLanguage.value]);
+  }, [selectedLanguage])
 
   const onClickSubmit = async () => {
     setError(false);
@@ -45,7 +60,6 @@ const Home = () => {
         <SelectComponent
           selectedLanguage={selectedLanguage}
           setSelectedLanguage={setSelectedLanguage}
-          setCode={setCode}
         />
       </div>
       <div className="h-full p-3 rounded-xl col-span-2 md:row-span-2 md:col-span-1 bg-[#1c2333]">
