@@ -1,5 +1,5 @@
 const toastStyles = {
-  duration: Infinity,
+  duration: 1500,
   position: "top-right",
   style: {
     background: "#1c2333",

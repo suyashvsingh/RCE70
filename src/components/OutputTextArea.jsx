@@ -17,7 +17,7 @@ const OuptutTextArea = ({ result, error }) => {
         className="p-3 rounded-xl w-full h-full resize-none bg-[#1c2333] rounded-t-none"
         readOnly
         placeholder="Output"
-        defaultValue={result}
+        value={result}
       />
     </div>
   );
