@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://ey1rx2unk0.execute-api.ap-south-1.amazonaws.com/test/api/:path*"
+    },
+    {
+      "source": "/api/:path*/",
+      "destination": "https://ey1rx2unk0.execute-api.ap-south-1.amazonaws.com/test/api/:path*/"
+    }
+  ]
+}

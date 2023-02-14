@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import EditorComponent from "../components/EditorComponent";
 import SelectComponent from "../components/SelectComponent";
@@ -14,6 +14,9 @@ const Home = () => {
   const [result, setResult] = useState("");
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+
+  const buttonRef = useRef(null);
+
 
   const [selectedLanguage, setSelectedLanguage] = useLocalStorage(
     "selected-language",
@@ -34,6 +37,18 @@ const Home = () => {
       setCode(JSON.parse(storedCode));
     } else setCode(boilerplate[selectedLanguage.value]);
   }, [selectedLanguage]);
+
+  useEffect(() => {
+    //click run button if user presses f5
+    const handleKeyDown = (e) => {
+      if (e.key === "F5") {
+        e.preventDefault();
+        buttonRef.current.click();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  })
 
   return (
     <div className="h-screen gap-1 p-3 grid grid-cols-2 grid-rows-[3em_calc(48%-3em)_calc(48%-3em)_3.5em] bg-[#0f1327]">
@@ -66,6 +81,7 @@ const Home = () => {
         )}
       </div>
       <RunButton
+        buttonRef={buttonRef}
         setError={setError}
         setLoading={setLoading}
         code={code}

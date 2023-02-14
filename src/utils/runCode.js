@@ -11,7 +11,7 @@ const runCode = async (code, selectedLanguage, input) => {
       input,
     });
     let reqOptions = {
-      url: `/api/v1/code/exe-${selectedLanguage.value}/`,
+      url: `/api/v1/code/exe-${selectedLanguage.value}`,
       method: "POST",
       headers: headersList,
       data: bodyContent,

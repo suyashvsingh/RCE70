@@ -7,7 +7,8 @@ export default defineConfig(() => {
     server: {
       proxy: {
         "/api": {
-          target: "http://localhost:5000",
+          target:
+            "https://ey1rx2unk0.execute-api.ap-south-1.amazonaws.com/test/",
           changeOrigin: true,
           secure: false,
         },
