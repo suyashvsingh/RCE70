@@ -66,7 +66,7 @@ Follow the steps below to get run the app in the local environment.
 
 6. Write the code, and give any input (if required)
 
-7. Run the code using Run button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> key
+7. Run the code using Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
 
 ### Installation through Docker Image
 

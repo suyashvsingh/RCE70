@@ -40,12 +40,12 @@ const Home = () => {
 
   useEffect(() => {
     const handleKeyDown = (e) => {
-      if (e.ctrlKey && e.key === "Enter") {
+      if (e.key === "Enter" && e.altKey) {
         buttonRef.current.click();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   return (
@@ -75,7 +75,11 @@ const Home = () => {
         {loading ? (
           <Loading />
         ) : (
-          <OuptutTextArea result={result} error={error} executionTime={executionTime}/>
+          <OuptutTextArea
+            result={result}
+            error={error}
+            executionTime={executionTime}
+          />
         )}
       </div>
       <RunButton
