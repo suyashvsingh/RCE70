@@ -47,26 +47,26 @@ Follow the steps below to get run the app in the local environment.
 
 1. Make sure Backend is up and running. Follow this <a href="https://github.com/suyashvsingh/Remote-Code-Executor-70-Backend">link</a> for setting up the backend
 
-1. Clone the repo
+2. Clone the repo
    ```sh
    git clone https://github.com/suyashvsingh/Remote-Code-Executor-70-Frontend.git
    ```
-2. Install NPM packages
+3. Install NPM packages
 
    ```sh
    npm install
    ```
 
-3. Start the application
+4. Start the application
    ```sh
    npm run dev
    ```
 
-4. Application will run on PORT 5173
+5. Application will run on PORT 5173
 
-5. Write the code, and give any input (if required)
+6. Write the code, and give any input (if required)
 
-6. Run the code using Run button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> key
+7. Run the code using Run button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> key
 
 ### Installation through Docker Image
 
