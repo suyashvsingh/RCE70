@@ -3,7 +3,6 @@ const languages = [
   { value: "python", label: "Python" },
   { value: "cpp", label: "C++" },
   { value: "c", label: "C" },
-  // { value: "go", label: "Go" },
   { value: "java", label: "Java" },
 ];
 
