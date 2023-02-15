@@ -12,6 +12,7 @@ import ResetButton from "../components/ResetButton";
 const Home = () => {
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
+  const [executionTime, setExecutionTime] = useState(0);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -74,7 +75,7 @@ const Home = () => {
         {loading ? (
           <Loading />
         ) : (
-          <OuptutTextArea result={result} error={error} />
+          <OuptutTextArea result={result} error={error} executionTime={executionTime}/>
         )}
       </div>
       <RunButton
@@ -85,6 +86,7 @@ const Home = () => {
         selectedLanguage={selectedLanguage}
         input={input}
         setResult={setResult}
+        setExecutionTime={setExecutionTime}
       />
     </div>
   );

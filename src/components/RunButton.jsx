@@ -11,6 +11,7 @@ const RunButton = ({
   input,
   setResult,
   buttonRef,
+  setExecutionTime
 }) => {
   const onClickRun = async () => {
     setError(false);
@@ -21,11 +22,13 @@ const RunButton = ({
       if (response.data.status === true) {
         toast.success("Code executed", toastStyles);
         setResult(response.data.data);
+        setExecutionTime(response.data.executionTime);
       }
     } catch (error) {
       setError(true);
       toast.error("Code execution failed", toastStyles);
       setResult(error);
+      setExecutionTime(0);
     }
     setLoading(false);
   };
