@@ -35,15 +35,17 @@ Users can run code on the web without having to install any IDE or text editor. 
 
 ## Live Demo
 
-1. https://rce70.vercel.app : Frontend hosted on Vercel, and used AWS Lamda serverless service.
+1. https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service.
 
-2. http://157.245.104.238/ -> Application hosted on Digitial Ocean server, with two containers running on it, the Frontend and the Backend
+2. http://157.245.104.238/ : Application hosted on Digitial Ocean server, with two containers running on it, the Frontend and the Backend
 
 ## Getting Started
 
 Follow the steps below to get run the app in the local environment.
 
 ### Installation
+
+1. Make sure Backend is up and running. Follow this <a href="https://github.com/suyashvsingh/Remote-Code-Executor-70-Backend">link</a> for setting up the backend
 
 1. Clone the repo
    ```sh
@@ -62,7 +64,7 @@ Follow the steps below to get run the app in the local environment.
 
 4. Application will run on PORT 5173
 
-5. Write the code, and give any input(if required)
+5. Write the code, and give any input (if required)
 
 6. Run the code using Run button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> key
 
