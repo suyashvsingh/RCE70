@@ -32,6 +32,12 @@ Users can run code on the web without having to install any IDE or text editor. 
 [![Vite][vite]][vite-url]
 [![React Router][react-router]][react-router-url]
 
+## Live Demo
+
+1. https://rce70.vercel.app : Frontend hosted on Vercel, and used AWS Lamda serverless service.
+
+2. http://157.245.104.238/ -> Application hosted on Digitial Ocean server, with two containers running on it, the Frontend and the Backend
+
 ## Getting Started
 
 Follow the steps below to get run the app in the local environment.
@@ -53,6 +59,12 @@ Follow the steps below to get run the app in the local environment.
    npm run dev
    ```
 
+4. Application will run on PORT 5173
+
+5. Write the code, and give any input(if required)
+
+6. Run the code using Run button or <kbd>Ctrl</kbd> + <kbd>Enter</kbd> key
+
 ### Installation through Docker Image
 
 1. Make sure Docker is installed
@@ -67,12 +79,14 @@ Follow the steps below to get run the app in the local environment.
    docker compose up
    ```
 
+4. Application will run on PORT 80
+
 ## Multiple language support
 
+![javascript]
+![python]
 ![c++]
 ![c]
-![python]
-![javascript]
 ![java]
 
 ## Team 😃

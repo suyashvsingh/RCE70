@@ -17,7 +17,6 @@ const Home = () => {
 
   const buttonRef = useRef(null);
 
-
   const [selectedLanguage, setSelectedLanguage] = useLocalStorage(
     "selected-language",
     {
@@ -39,16 +38,14 @@ const Home = () => {
   }, [selectedLanguage]);
 
   useEffect(() => {
-    //click run button if user presses f5
     const handleKeyDown = (e) => {
-      if (e.key === "F5") {
-        e.preventDefault();
+      if (e.ctrlKey && e.key === "Enter") {
         buttonRef.current.click();
       }
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  })
+  }, []);
 
   return (
     <div className="h-screen gap-1 p-3 grid grid-cols-2 grid-rows-[3em_calc(48%-3em)_calc(48%-3em)_3.5em] bg-[#0f1327]">
