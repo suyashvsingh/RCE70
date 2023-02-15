@@ -25,6 +25,7 @@ Users can run code on the web without having to install any IDE or text editor. 
 [![Neact][node.js]][node-url]
 [![Express][express.js]][express-url]
 [![React][react.js]][react-url]
+[![Tailwind][tailwind]][tailwind-url]
 [![Docker][docker]][docker-url]
 [![AWS][aws]][aws-url]
 [![Digital Ocean][digital-ocean]][digital-ocean-url]
@@ -106,6 +107,8 @@ Made with love by:
 [node-url]: https://nodejs.org/en/
 [express.js]: https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white
 [express-url]: https://expressjs.com/
+[tailwind]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
+[tailwind-url]: https://tailwindcss.com/
 [docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
 [docker-url]: https://www.docker.com/
 [aws]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
