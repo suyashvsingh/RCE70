@@ -45,11 +45,11 @@ Follow the steps below to get run the app in the local environment.
 
 ### Installation
 
-1. Make sure Backend is up and running. Follow this <a href="https://github.com/suyashvsingh/Remote-Code-Executor-70-Backend">link</a> for setting up the backend
+1. Make sure that the server is up and running. Follow this <a href="https://github.com/suyashvsingh/rce70-server">link</a> for setting up the backend
 
 2. Clone the repo
    ```sh
-   git clone https://github.com/suyashvsingh/Remote-Code-Executor-70-Frontend.git
+   git clone https://github.com/suyashvsingh/rce70-client.git
    ```
 3. Install NPM packages
 
@@ -74,7 +74,7 @@ Follow the steps below to get run the app in the local environment.
 
 2. Clone the repo
    ```sh
-   git clone https://github.com/suyashvsingh/Remote-Code-Executor-70-docker-compose
+   git clone https://github.com/suyashvsingh/rce70-compose
    ```
 
 3. Run the command
