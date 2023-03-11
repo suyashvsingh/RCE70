@@ -46,7 +46,7 @@ Users can run code on the web without having to install any IDE or text editor. 
 
 1. https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service
 
-2. http://68.183.244.133 : Kubernetes cluster hosted on Digital Ocean
+2. http://64.225.84.20/ : Kubernetes cluster hosted on Digital Ocean
 
 ## Main Features
 
