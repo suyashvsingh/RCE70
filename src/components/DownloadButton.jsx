@@ -3,7 +3,7 @@ import random from "random";
 import { TbDownload } from "react-icons/tb";
 
 const DownloadButton = ({ code, selectedLanguage }) => {
-  const handleOnClickDownload = () => {
+  const OnClickDownload = () => {
     const fileExtensions = {
       javascript: "js",
       python: "py",
@@ -21,8 +21,8 @@ const DownloadButton = ({ code, selectedLanguage }) => {
 
   return (
     <button
-      onClick={handleOnClickDownload}
-      className="bg-green-700 flex-grow-0 px-4 py-2 text-white rounded-xl font-medium text-sm mt-4 w-fit hover:bg-green-800 flex items-center justify-center gap-1"
+      onClick={OnClickDownload}
+      className="bg-[#1c2333] flex-grow-0 px-4 py-2 text-white rounded-xl text-sm mt-4 w-fit flex items-center justify-center gap-1 font-semibold"
     >
       Download
       <TbDownload />
