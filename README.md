@@ -2,7 +2,6 @@
 <div align="center">
       <img src="public/images/logo.png" alt="Logo" height="80">
 
-
 <h3 align="center">
   <a href="https://rce70.vercel.app/">
       RCE70
@@ -18,7 +17,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://rce70.vercel.app/)
 
-Users can run code on the web without having to install any IDE or text editor. And it's free!
+Users can run code on the web without having to install any IDE or text editor. And it's free! The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
 
 ## Tools Used
 
@@ -33,76 +32,176 @@ Users can run code on the web without having to install any IDE or text editor. 
 [![Vite][vite]][vite-url]
 [![React Router][react-router]][react-router-url]
 
+## Packages Used
+
+1. Axios
+2. Monaco Editor
+3. React Hot Toast
+4. React Icons
+5. React Select
+6. React Spinners
+
 ## Live Demo
 
-1. https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service.
+1. https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service
 
-2. http://157.245.104.238/ : Application hosted on Digitial Ocean server, with two containers running on it, the Frontend and the Backend
+2. http://68.183.244.133 : Kubernetes cluster hosted on Digital Ocean
+
+## Main Features
+
+1. Multiple language support
+
+   ![javascript]
+   ![python]
+   ![c++]
+   ![c]
+   ![java]
+
+2. There are three text editors, one for the code, one for the input and one for the output
+
+3. The code can be run using the Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
+
+4. The code automatically get saved in the local storage, so that the user can continue from where he left
+
+5. The user can reset the code using the Reset button
+
+## Thought behind the project
+
+1. Researchers could use a Remote Code Executor app to test the security of different applications or systems, without having to run potentially dangerous code on their own machines.
+
+2. Developers could use a Remote Code Executor app to quickly test code snippets or entire applications in a controlled environment, without having to set up a local development environment.
+
+3. A Remote Code Executor app could be useful for teaching coding concepts and techniques, particularly for online courses or tutorials. Students could experiment with different code examples and receive immediate feedback, without having to install anything locally.
+
+## Working
+
+1. The user writes the code in the code editor
+2. The user gives the input in the input editor
+3. The user clicks on the Run button or presses <kbd>Alt</kbd> + <kbd>Enter</kbd> key
+4. The code is sent to the server.
+5. The server creates a random file name and saves the code and input in the file with the respective extensions.
+6. The server runs the code using the respective compiler or interpreter, with a timeout of 10 seconds.
+7. The server sends the status, data and execution time to the client.
+8. The client displays the output (or error if any) and execution time in the output editor.
 
 ## Getting Started
 
-Follow the steps below to get run the app in the local environment.
+### Installation through Source Code
 
-### Installation
+1. Make sure that you have g++, gcc, python3, nodejs and java installed on your system. Type the following commands in your terminal to check if they are installed.
 
-1. Make sure that the server is up and running. Follow this <a href="https://github.com/suyashvsingh/rce70-server">link</a> for setting up the backend
-
-2. Clone the repo
    ```sh
-   git clone https://github.com/suyashvsingh/rce70-client.git
+   g++ --version
+   gcc --version
+   python3 --version
+   node --version
+   java --version
    ```
+
+   If required, run the following command to install the required dependencies.
+
+   ```sh
+   sudo apt install -y build-essential nodejs default-jre
+   ```
+
+2. Clone the server repo
+
+   ```sh
+   git clone https://github.com/suyashvsingh/rce70-server.git
+   ```
+
 3. Install NPM packages
 
    ```sh
    npm install
    ```
 
-4. Start the application
+4. Create a `.env` file and add line `PORT=5000` to it
+
+5. Start the application
+
    ```sh
    npm run dev
    ```
 
-5. Application will run on PORT 5173
+6. Server will run on PORT 5000
 
-6. Write the code, and give any input (if required)
+7. Clone the client repo
 
-7. Run the code using Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
+   ```sh
+   git clone https://github.com/suyashvsingh/rce70-client.git
+   ```
+
+8. Install NPM packages
+
+   ```sh
+   npm install
+   ```
+
+9. Start the application
+
+   ```sh
+   npm run dev
+   ```
+
+10. Client will run on PORT 5173
+
+11. Write the code, and give any input (if required)
+
+12. Run the code using Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
 
 ### Installation through Docker Image
 
 1. Make sure Docker is installed
 
-2. Clone the repo
+2. Clone the compose repo
+
    ```sh
-   git clone https://github.com/suyashvsingh/rce70-compose
+   git clone https://github.com/suyashvsingh/rce70-compose.git
    ```
 
 3. Run the command
+
    ```sh
    docker compose up
    ```
 
 4. Application will run on PORT 80
 
-## Multiple language support
+### Installation through Kubernetes
 
-![javascript]
-![python]
-![c++]
-![c]
-![java]
+1. Make sure you have _Minikube_ and _kubectl_ installed
+
+2. Clone the compose repo
+
+   ```sh
+   git clone https://github.com/suyashvsingh/rce70-k8s.git
+   ```
+
+3. Run the command
+
+   ```sh
+   kubectl apply -f .
+   ```
+
+4. Run the command
+
+   ```sh
+   minikube service rce70-client
+   ```
+
+5. Application will open in a new browser window
 
 ## Team 😃
 
 Made with love by:
 
-1. Sanket Diwate
-2. Ketan Prakash
-3. Aditya Pote
-4. Suyash Vikram Singh
+1. Sanket Diwate (2020IMT-031)
+2. Ketan Prakash (2020IMT-044)
+3. Aditya Pote (2020IMT-069)
+4. Suyash Vikram Singh (2020IMT-104)
 
-[product-screenshot]:public/images/HomePage.png
-
+[product-screenshot]: public/images/HomePage.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
@@ -123,7 +222,6 @@ Made with love by:
 [vite-url]: https://vitejs.dev/
 [react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com/en/main
-
 [c++]: https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [c]: https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
