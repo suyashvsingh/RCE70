@@ -37,7 +37,7 @@ const RunButton = ({
     <button
       ref={buttonRef}
       onClick={onClickRun}
-      className="bg-green-700 flex-grow-0 px-4 py-2 text-white rounded-xl font-medium text-sm mt-4 w-fit ml-auto hover:bg-green-800 flex items-center justify-center gap-1 col-span-2"
+      className="bg-green-700 flex-grow-0 px-4 py-2 text-white rounded-xl font-medium text-sm mt-4 w-fit hover:bg-green-800 flex items-center justify-center gap-1 ml-auto"
     >
       Run
       <BsFillPlayFill />

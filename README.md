@@ -40,6 +40,7 @@ Users can run code on the web without having to install any IDE or text editor. 
 4. React Icons
 5. React Select
 6. React Spinners
+7. js-file-download
 
 ## Live Demo
 
@@ -64,6 +65,8 @@ Users can run code on the web without having to install any IDE or text editor. 
 4. The code automatically get saved in the local storage, so that the user can continue from where he left
 
 5. The user can reset the code using the Reset button
+
+6. The user can download the code using the Download button
 
 ## Thought behind the project
 

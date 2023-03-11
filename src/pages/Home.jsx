@@ -8,6 +8,7 @@ import InputTextArea from "../components/InputTextArea";
 import RunButton from "../components/RunButton";
 import boilerplate from "../data/boilerplate";
 import ResetButton from "../components/ResetButton";
+import DownloadButton from "../components/DownloadButton";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -82,6 +83,7 @@ const Home = () => {
           />
         )}
       </div>
+      <DownloadButton code={code} selectedLanguage={selectedLanguage} />
       <RunButton
         buttonRef={buttonRef}
         setError={setError}
