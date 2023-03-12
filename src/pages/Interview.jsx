@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useParams } from "react-router-dom";
+import database from "../../firebase";
+import { ref, set, onValue } from "firebase/database";
 import EditorComponent from "../components/EditorComponent";
 import SelectComponent from "../components/SelectComponent";
 import Loading from "../components/Loading";
@@ -9,9 +11,11 @@ import RunButton from "../components/RunButton";
 import boilerplate from "../data/boilerplate";
 import ResetButton from "../components/ResetButton";
 import DownloadButton from "../components/DownloadButton";
-import InterviewButton from "../components/InterviewButton";
 
-const Home = () => {
+const Interview = () => {
+  const { id } = useParams();
+
+  const [initalLoadDone, setInitialLoadDone] = useState(false);
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [executionTime, setExecutionTime] = useState(0);
@@ -20,25 +24,49 @@ const Home = () => {
 
   const buttonRef = useRef(null);
 
-  const [selectedLanguage, setSelectedLanguage] = useLocalStorage(
-    "selected-language",
-    {
-      value: "javascript",
-      label: "JavaScript",
-    }
-  );
+  const [selectedLanguage, setSelectedLanguage] = useState({
+    value: "javascript",
+    label: "JavaScript",
+  });
 
-  const [code, setCode] = useLocalStorage(
-    selectedLanguage.value,
-    boilerplate[selectedLanguage.value]
-  );
+  const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
 
-  useEffect(() => {
-    const storedCode = localStorage.getItem(selectedLanguage.value);
-    if (storedCode) {
-      setCode(JSON.parse(storedCode));
-    } else setCode(boilerplate[selectedLanguage.value]);
-  }, [selectedLanguage]);
+  const addToDatabase = async () => {
+    const codeToSend = code;
+    codeToSend.replace(/\r/g, "");
+    console.log(JSON.stringify(codeToSend));
+    set(ref(database, "interviews/" + id), {
+      code: JSON.stringify(codeToSend),
+      input: input,
+      result: result,
+      selectedLanguage: selectedLanguage,
+    });
+  };
+
+  const readFromDatabase = async () => {
+    const interviewsRef = ref(database, "interviews/" + id);
+    onValue(interviewsRef, async (snapshot) => {
+      const data = await snapshot.val();
+      setCode(await JSON.parse(data.code));
+      setInput(await data.input);
+      setResult(await data.result);
+      setSelectedLanguage(await data.selectedLanguage);
+    });
+  };
+
+  const initialLoad = async () => {
+    const interviewsRef = ref(database, "interviews/" + id);
+    onValue(interviewsRef, async (snapshot) => {
+      const exists = await snapshot.val();
+      if (exists == null) {
+        await addToDatabase();
+        setInitialLoadDone(true);
+      } else {
+        await readFromDatabase();
+        setInitialLoadDone(true);
+      }
+    });
+  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -50,12 +78,24 @@ const Home = () => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  useEffect(() => {
+    initialLoad();
+  }, []);
+
+  useEffect(() => {
+    if (initalLoadDone) {
+      addToDatabase();
+    }
+  }, [code, input, result, selectedLanguage]);
+
   return (
     <div className="h-screen gap-1 p-3 grid grid-cols-2 grid-rows-[3em_calc(48%-3em)_calc(48%-3em)_3.5em] bg-[#0f1327]">
       <div className="flex gap-2 items-center col-span-2">
         <SelectComponent
           selectedLanguage={selectedLanguage}
           setSelectedLanguage={setSelectedLanguage}
+          fromInterviewMode={true}
+          setCode={setCode}
         />
         <ResetButton
           setCode={setCode}
@@ -64,7 +104,9 @@ const Home = () => {
           setError={setError}
           selectedLanguage={selectedLanguage}
         />
-        <InterviewButton />
+        <div className="ml-auto">
+          Connected : <span className="text-green-500 font-semibold">{id}</span>
+        </div>
       </div>
       <div className="h-full p-3 rounded-xl col-span-2 md:row-span-2 md:col-span-1 bg-[#1c2333]">
         <EditorComponent
@@ -100,4 +142,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Interview;

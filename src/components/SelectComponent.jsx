@@ -1,10 +1,13 @@
 import Select from "react-select";
 import selectStyle from "../styles/selectStyle";
 import languages from "../data/languages";
+import boilerplate from "../data/boilerplate";
 
 const SelectComponent = ({
   selectedLanguage,
   setSelectedLanguage,
+  fromInterviewMode = false,
+  setCode,
 }) => {
   return (
     <Select
@@ -18,6 +21,9 @@ const SelectComponent = ({
       )}
       onChange={(selectedOption) => {
         setSelectedLanguage(selectedOption);
+        if (fromInterviewMode) {
+          setCode(boilerplate[selectedOption.value]);
+        }
       }}
       styles={selectStyle}
     />
