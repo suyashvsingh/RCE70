@@ -34,7 +34,6 @@ const Interview = () => {
   const addToDatabase = async () => {
     const codeToSend = code;
     codeToSend.replace(/\r/g, "");
-    console.log(JSON.stringify(codeToSend));
     set(ref(database, "interviews/" + id), {
       code: JSON.stringify(codeToSend),
       input: input,
@@ -104,9 +103,12 @@ const Interview = () => {
           setError={setError}
           selectedLanguage={selectedLanguage}
         />
-        <div className="ml-auto">
-          Connected : <span className="text-green-500 font-semibold">{id}</span>
-        </div>
+        {initalLoadDone && (
+          <div className="ml-auto">
+            Connected :{" "}
+            <span className="text-green-500 font-semibold">{id}</span>
+          </div>
+        )}
       </div>
       <div className="h-full p-3 rounded-xl col-span-2 md:row-span-2 md:col-span-1 bg-[#1c2333]">
         <EditorComponent
