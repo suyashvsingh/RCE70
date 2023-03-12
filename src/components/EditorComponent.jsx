@@ -1,7 +1,7 @@
 import Editor from "@monaco-editor/react";
 import { customTheme, optionsEditor } from "../styles/editorStyles";
 
-const EditorComponent = ({ code, setCode, selectedLanguage }) => {
+const EditorComponent = ({ code, setCode, selectedLanguage}) => {
   return (
     <Editor
       height={"100%"}

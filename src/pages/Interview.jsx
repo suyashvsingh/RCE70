@@ -32,8 +32,11 @@ const Interview = () => {
   const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
 
   const addToDatabase = async () => {
+    const codeToSend = code;
+    codeToSend.replace(/\r/g, "");
+    console.log(JSON.stringify(codeToSend));
     set(ref(database, "interviews/" + id), {
-      code: code,
+      code: JSON.stringify(codeToSend),
       input: input,
       result: result,
       selectedLanguage: selectedLanguage,
@@ -44,13 +47,10 @@ const Interview = () => {
     const interviewsRef = ref(database, "interviews/" + id);
     onValue(interviewsRef, async (snapshot) => {
       const data = await snapshot.val();
-      setCode(await data.code);
+      setCode(await JSON.parse(data.code));
       setInput(await data.input);
       setResult(await data.result);
-      setSelectedLanguage({
-        value: await data.selectedLanguage.value,
-        label: await data.selectedLanguage.label,
-      });
+      setSelectedLanguage(await data.selectedLanguage);
     });
   };
 
