@@ -7,6 +7,7 @@ const runCode = async (code, selectedLanguage, input) => {
       "Content-Type": "application/json",
     };
     let bodyContent = JSON.stringify({
+      language: selectedLanguage.value,
       code,
       input,
     });

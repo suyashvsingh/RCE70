@@ -1,6 +1,5 @@
 const toastStyles = {
   duration: 1500,
-  position: "top-right",
   style: {
     background: "#1c2333",
     padding: "0.75rem",

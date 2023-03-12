@@ -17,7 +17,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://rce70.vercel.app/)
 
-Users can run code on the web without having to install any IDE or text editor. And it's free! The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
+Users can run code on the web without having to install any IDE or text editor. And it's free! There is also an interview mode, where the user can write code and give input, and the same would be shared with the interviewer. The interviewer can then run the code and see the output. The user can also download the code. The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
 
 ## Tools Used
 
@@ -31,6 +31,7 @@ Users can run code on the web without having to install any IDE or text editor. 
 [![Vercel][vercel]][vercel-url]
 [![Vite][vite]][vite-url]
 [![React Router][react-router]][react-router-url]
+[![Firebase][firebase]][firebase-url]
 
 ## Packages Used
 
@@ -68,6 +69,8 @@ Users can run code on the web without having to install any IDE or text editor. 
 
 6. The user can download the code using the Download button
 
+7. There is an interview mode, where the user can write code and give input, and the same would be shared with the interviewer. The interviewer can then run the code and see the output.
+
 ## Thought behind the project
 
 1. Researchers could use a Remote Code Executor app to test the security of different applications or systems, without having to run potentially dangerous code on their own machines.
@@ -79,13 +82,29 @@ Users can run code on the web without having to install any IDE or text editor. 
 ## Working
 
 1. The user writes the code in the code editor
+
 2. The user gives the input in the input editor
-3. The user clicks on the Run button or presses <kbd>Alt</kbd> + <kbd>Enter</kbd> key
+
+3. The user clicks on the Run button or presses <kbd>Alt</
+kbd> + <kbd>Enter</kbd> key
+
 4. The code is sent to the server.
-5. The server creates a random file name and saves the code and input in the file with the respective extensions.
-6. The server runs the code using the respective compiler or interpreter, with a timeout of 10 seconds.
-7. The server sends the status, data and execution time to the client.
-8. The client displays the output (or error if any) and execution time in the output editor.
+
+5. The server creates a random file name and saves the code 
+and input in the file with the respective extensions.
+
+6. The server runs the code using the respective compiler or 
+interpreter, with a timeout of 10 seconds.
+
+7. The server sends the status, data and execution time to 
+the client.
+
+8. The client displays the output (or error if any) and 
+execution time in the output editor.
+
+9. To enter the interview mode, click on the _Enter interview mode_ button. The user will be given a unique link, which can be shared with the interviewer. The interviewer can then run the code and see the output.
+
+[![Product Name Screen Shot][interviewmode-screenshot]]()
 
 ## Getting Started
 
@@ -205,6 +224,7 @@ Made with love by:
 4. Suyash Vikram Singh (2020IMT-104)
 
 [product-screenshot]: public/images/HomePage.png
+[interviewmode-screenshot]: public/images/InterviewMode.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
@@ -225,6 +245,8 @@ Made with love by:
 [vite-url]: https://vitejs.dev/
 [react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com/en/main
+[firebase]: https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white
+[firebase-url]: https://firebase.google.com/
 [c++]: https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [c]: https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54

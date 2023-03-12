@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-hot-toast";
 import database from "../../firebase";
 import { ref, set, onValue } from "firebase/database";
 import EditorComponent from "../components/EditorComponent";
@@ -11,11 +12,20 @@ import RunButton from "../components/RunButton";
 import boilerplate from "../data/boilerplate";
 import ResetButton from "../components/ResetButton";
 import DownloadButton from "../components/DownloadButton";
+import toastStyles from "../styles/toastStyle";
+import removeEscCharsFromCode from "../utils/removeEscCharFromCode";
 
 const Interview = () => {
+  const navigate = useNavigate();
+
   const { id } = useParams();
 
-  const [initalLoadDone, setInitialLoadDone] = useState(false);
+  const [connected, setConnected] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState({
+    value: "cpp",
+    label: "C++",
+  });
+  const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
   const [input, setInput] = useState("");
   const [result, setResult] = useState("");
   const [executionTime, setExecutionTime] = useState(0);
@@ -23,49 +33,6 @@ const Interview = () => {
   const [loading, setLoading] = useState(false);
 
   const buttonRef = useRef(null);
-
-  const [selectedLanguage, setSelectedLanguage] = useState({
-    value: "javascript",
-    label: "JavaScript",
-  });
-
-  const [code, setCode] = useState(boilerplate[selectedLanguage.value]);
-
-  const addToDatabase = async () => {
-    const codeToSend = code;
-    codeToSend.replace(/\r/g, "");
-    set(ref(database, "interviews/" + id), {
-      code: JSON.stringify(codeToSend),
-      input: input,
-      result: result,
-      selectedLanguage: selectedLanguage,
-    });
-  };
-
-  const readFromDatabase = async () => {
-    const interviewsRef = ref(database, "interviews/" + id);
-    onValue(interviewsRef, async (snapshot) => {
-      const data = await snapshot.val();
-      setCode(await JSON.parse(data.code));
-      setInput(await data.input);
-      setResult(await data.result);
-      setSelectedLanguage(await data.selectedLanguage);
-    });
-  };
-
-  const initialLoad = async () => {
-    const interviewsRef = ref(database, "interviews/" + id);
-    onValue(interviewsRef, async (snapshot) => {
-      const exists = await snapshot.val();
-      if (exists == null) {
-        await addToDatabase();
-        setInitialLoadDone(true);
-      } else {
-        await readFromDatabase();
-        setInitialLoadDone(true);
-      }
-    });
-  };
 
   useEffect(() => {
     const handleKeyDown = (e) => {
@@ -77,12 +44,42 @@ const Interview = () => {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const fetchInterview = async () => {
+    const dbRef = ref(database, "interviews/" + id);
+    onValue(dbRef, async (snapshot) => {
+      const data = await snapshot.val();
+      if (data) {
+        setCode(await JSON.parse(data.code));
+        setInput(await data.input);
+        setResult(await data.result);
+        setSelectedLanguage({
+          value: await data.selectedLanguage.value,
+          label: await data.selectedLanguage.label,
+        });
+        setConnected(true);
+      } else {
+        toast.error("Invalid id", toastStyles);
+        navigate("/");
+      }
+    });
+  };
+
+  const addToDatabase = async () => {
+    const codeToSend = removeEscCharsFromCode(code);
+    set(ref(database, "interviews/" + id), {
+      code: JSON.stringify(codeToSend),
+      input: input,
+      result: result,
+      selectedLanguage: selectedLanguage,
+    });
+  };
+
   useEffect(() => {
-    initialLoad();
+    fetchInterview();
   }, []);
 
   useEffect(() => {
-    if (initalLoadDone) {
+    if (connected) {
       addToDatabase();
     }
   }, [code, input, result, selectedLanguage]);
@@ -103,7 +100,7 @@ const Interview = () => {
           setError={setError}
           selectedLanguage={selectedLanguage}
         />
-        {initalLoadDone && (
+        {connected && (
           <div className="ml-auto">
             Connected :{" "}
             <span className="text-green-500 font-semibold">{id}</span>
