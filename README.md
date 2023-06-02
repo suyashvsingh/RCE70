@@ -45,9 +45,7 @@ Users can run code on the web without having to install any IDE or text editor. 
 
 ## Live Demo
 
-1. https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service
-
-2. http://64.225.84.20/ : Kubernetes cluster hosted on Digital Ocean
+https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverless service
 
 ## Main Features
 
@@ -176,43 +174,31 @@ execution time in the output editor.
 
 1. Make sure Docker is installed
 
-2. Clone the compose repo
-
-   ```sh
-   git clone https://github.com/suyashvsingh/rce70-compose.git
-   ```
-
-3. Run the command
+2. Run the command
 
    ```sh
    docker compose up
    ```
 
-4. Application will run on PORT 80
+3. Application will run on PORT 80
 
 ### Installation through Kubernetes
 
 1. Make sure you have _Minikube_ and _kubectl_ installed
 
-2. Clone the compose repo
-
-   ```sh
-   git clone https://github.com/suyashvsingh/rce70-k8s.git
-   ```
-
-3. Run the command
+2. Run the command
 
    ```sh
    kubectl apply -f .
    ```
 
-4. Run the command
+3. Run the command
 
    ```sh
    minikube service rce70-client
    ```
 
-5. Application will open in a new browser window
+4. Application will open in a new browser window
 
 ## Team 😃
 
