@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rce70-client
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: rce70-client
+  template:
+    metadata:
+      labels:
+        app: rce70-client
+    spec:
+      containers:
+        - name: frontend
+          image: suyashvsingh/rce70-client:v3.0
+          ports:
+            - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rce70-client
+spec:
+  type: LoadBalancer
+  selector:
+    app: rce70-client
+  ports:
+    - port: 80
+      targetPort: 80

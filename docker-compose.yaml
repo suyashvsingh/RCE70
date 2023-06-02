@@ -1,0 +1,14 @@
+version: "3.7"
+
+services:
+  rce70-client:
+    image: suyashvsingh/rce70-client
+    ports:
+      - 80:80
+    depends_on:
+      - rce70-server
+
+  rce70-server:
+    image: suyashvsingh/rce70-server
+    environment:
+      - PORT=5000
