@@ -2,11 +2,11 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://ey1rx2unk0.execute-api.ap-south-1.amazonaws.com/test/api/:path*"
+      "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*"
     },
     {
       "source": "/api/:path*/",
-      "destination": "https://ey1rx2unk0.execute-api.ap-south-1.amazonaws.com/test/api/:path*/"
+      "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*/"
     },
     { "source": "/(.*)", "destination": "/index.html" }
   ]

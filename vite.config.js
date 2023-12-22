@@ -8,7 +8,7 @@ export default defineConfig(() => {
       proxy: {
         "/api": {
           target:
-            "https://localhost:3000",
+            "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/",
           changeOrigin: true,
           secure: false,
         },
