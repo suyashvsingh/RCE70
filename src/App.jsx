@@ -1,6 +1,5 @@
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Interview from "./pages/Interview";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
@@ -8,7 +7,6 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/:id" element={<Interview />} />
         <Route
           path="*"
           element={

@@ -6,7 +6,6 @@ import boilerplate from "../data/boilerplate";
 const SelectComponent = ({
   selectedLanguage,
   setSelectedLanguage,
-  fromInterviewMode = false,
   setCode,
 }) => {
   return (
@@ -21,9 +20,6 @@ const SelectComponent = ({
       )}
       onChange={(selectedOption) => {
         setSelectedLanguage(selectedOption);
-        if (fromInterviewMode) {
-          setCode(boilerplate[selectedOption.value]);
-        }
       }}
       styles={selectStyle}
     />

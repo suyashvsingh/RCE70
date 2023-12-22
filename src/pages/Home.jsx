@@ -9,7 +9,6 @@ import RunButton from "../components/RunButton";
 import boilerplate from "../data/boilerplate";
 import ResetButton from "../components/ResetButton";
 import DownloadButton from "../components/DownloadButton";
-import InterviewButton from "../components/InterviewButton";
 
 const Home = () => {
   const [input, setInput] = useState("");
@@ -64,7 +63,6 @@ const Home = () => {
           setError={setError}
           selectedLanguage={selectedLanguage}
         />
-        <InterviewButton />
       </div>
       <div className="h-full p-3 rounded-xl col-span-2 md:row-span-2 md:col-span-1 bg-[#1c2333]">
         <EditorComponent

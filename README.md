@@ -17,7 +17,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://rce70.vercel.app/)
 
-Users can run code on the web without having to install any IDE or text editor. And it's free! There is also an interview mode, where the user can write code and give input, and the same would be shared with the interviewer. The interviewer can then run the code and see the output. The user can also download the code. The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
+Users can run code on the web without having to install any IDE or text editor. And it's free! The user can also download the code. The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
 
 ## Tools Used
 
@@ -67,8 +67,6 @@ https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverl
 
 6. The user can download the code using the Download button
 
-7. There is an interview mode, where the user can write code and give input, and the same would be shared with the interviewer. The interviewer can then run the code and see the output.
-
 ## Thought behind the project
 
 1. Researchers could use a Remote Code Executor app to test the security of different applications or systems, without having to run potentially dangerous code on their own machines.
@@ -99,10 +97,6 @@ the client.
 
 8. The client displays the output (or error if any) and 
 execution time in the output editor.
-
-9. To enter the interview mode, click on the _Enter interview mode_ button. The user will be given a unique link, which can be shared with the interviewer. The interviewer can then run the code and see the output.
-
-[![Product Name Screen Shot][interviewmode-screenshot]]()
 
 ## Getting Started
 
@@ -210,7 +204,6 @@ Made with love by:
 4. Suyash Vikram Singh (2020IMT-104)
 
 [product-screenshot]: public/images/HomePage.png
-[interviewmode-screenshot]: public/images/InterviewMode.png
 [react.js]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
 [node.js]: https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white
