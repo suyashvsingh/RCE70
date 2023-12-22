@@ -1,33 +1,33 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rce70-server
+    name: rce70-server
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: rce70-server
-  template:
-    metadata:
-      labels:
-        app: rce70-server
-    spec:
-      containers:
-        - name: rce70-server
-          image: suyashvsingh/rce70-server:v1.0
-          env:
-            - name: PORT
-              value: "5000"
-          ports:
-            - containerPort: 5000
+    replicas: 3
+    selector:
+        matchLabels:
+            app: rce70-server
+    template:
+        metadata:
+            labels:
+                app: rce70-server
+        spec:
+            containers:
+                - name: rce70-server
+                  image: suyashvsingh/rce70-server:v1.0
+                  env:
+                      - name: PORT
+                        value: '5000'
+                  ports:
+                      - containerPort: 5000
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: rce70-server
+    name: rce70-server
 spec:
-  selector:
-    app: rce70-server
-  ports:
-    - port: 5000
-      targetPort: 5000
+    selector:
+        app: rce70-server
+    ports:
+        - port: 5000
+          targetPort: 5000

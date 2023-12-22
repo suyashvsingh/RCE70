@@ -51,11 +51,11 @@ https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverl
 
 1. Multiple language support
 
-   ![javascript]
-   ![python]
-   ![c++]
-   ![c]
-   ![java]
+    ![javascript]
+    ![python]
+    ![c++]
+    ![c]
+    ![java]
 
 2. There are three text editors, one for the code, one for the input and one for the output
 
@@ -82,21 +82,21 @@ https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverl
 2. The user gives the input in the input editor
 
 3. The user clicks on the Run button or presses <kbd>Alt</
-kbd> + <kbd>Enter</kbd> key
+   kbd> + <kbd>Enter</kbd> key
 
 4. The code is sent to the server.
 
-5. The server creates a random file name and saves the code 
-and input in the file with the respective extensions.
+5. The server creates a random file name and saves the code
+   and input in the file with the respective extensions.
 
-6. The server runs the code using the respective compiler or 
-interpreter, with a timeout of 10 seconds.
+6. The server runs the code using the respective compiler or
+   interpreter, with a timeout of 10 seconds.
 
-7. The server sends the status, data and execution time to 
-the client.
+7. The server sends the status, data and execution time to
+   the client.
 
-8. The client displays the output (or error if any) and 
-execution time in the output editor.
+8. The client displays the output (or error if any) and
+   execution time in the output editor.
 
 ## Getting Started
 
@@ -104,59 +104,59 @@ execution time in the output editor.
 
 1. Make sure that you have g++, gcc, python3, nodejs and java installed on your system. Type the following commands in your terminal to check if they are installed.
 
-   ```sh
-   g++ --version
-   gcc --version
-   python3 --version
-   node --version
-   java --version
-   ```
+    ```sh
+    g++ --version
+    gcc --version
+    python3 --version
+    node --version
+    java --version
+    ```
 
-   If required, run the following command to install the required dependencies.
+    If required, run the following command to install the required dependencies.
 
-   ```sh
-   sudo apt install -y build-essential nodejs default-jre
-   ```
+    ```sh
+    sudo apt install -y build-essential nodejs default-jre
+    ```
 
 2. Clone the server repo
 
-   ```sh
-   git clone https://github.com/suyashvsingh/rce70-server.git
-   ```
+    ```sh
+    git clone https://github.com/suyashvsingh/rce70-server.git
+    ```
 
 3. Install NPM packages
 
-   ```sh
-   npm install
-   ```
+    ```sh
+    npm install
+    ```
 
 4. Create a `.env` file and add line `PORT=5000` to it
 
 5. Start the application
 
-   ```sh
-   npm run dev
-   ```
+    ```sh
+    npm run dev
+    ```
 
 6. Server will run on PORT 5000
 
 7. Clone the client repo
 
-   ```sh
-   git clone https://github.com/suyashvsingh/rce70-client.git
-   ```
+    ```sh
+    git clone https://github.com/suyashvsingh/rce70-client.git
+    ```
 
 8. Install NPM packages
 
-   ```sh
-   npm install
-   ```
+    ```sh
+    npm install
+    ```
 
 9. Start the application
 
-   ```sh
-   npm run dev
-   ```
+    ```sh
+    npm run dev
+    ```
 
 10. Client will run on PORT 5173
 
@@ -170,9 +170,9 @@ execution time in the output editor.
 
 2. Run the command
 
-   ```sh
-   docker compose up
-   ```
+    ```sh
+    docker compose up
+    ```
 
 3. Application will run on PORT 80
 
@@ -182,15 +182,15 @@ execution time in the output editor.
 
 2. Run the command
 
-   ```sh
-   kubectl apply -f .
-   ```
+    ```sh
+    kubectl apply -f .
+    ```
 
 3. Run the command
 
-   ```sh
-   minikube service rce70-client
-   ```
+    ```sh
+    minikube service rce70-client
+    ```
 
 4. Application will open in a new browser window
 

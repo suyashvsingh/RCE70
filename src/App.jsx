@@ -1,24 +1,24 @@
-import { Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import { Toaster } from "react-hot-toast";
+import { Routes, Route } from 'react-router-dom'
+import Home from './pages/Home'
+import { Toaster } from 'react-hot-toast'
 
 const App = () => {
-  return (
-    <>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="*"
-          element={
-            <h1 className="text-black flex h-screen items-center justify-center text-3xl font-semibold">
-              404 Not Found
-            </h1>
-          }
-        />
-      </Routes>
-      <Toaster />
-    </>
-  );
-};
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route
+                    path="*"
+                    element={
+                        <h1 className="text-black flex h-screen items-center justify-center text-3xl font-semibold">
+                            404 Not Found
+                        </h1>
+                    }
+                />
+            </Routes>
+            <Toaster />
+        </>
+    )
+}
 
-export default App;
+export default App

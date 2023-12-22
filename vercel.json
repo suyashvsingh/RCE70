@@ -1,13 +1,13 @@
 {
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*"
-    },
-    {
-      "source": "/api/:path*/",
-      "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*/"
-    },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+    "rewrites": [
+        {
+            "source": "/api/:path*",
+            "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*"
+        },
+        {
+            "source": "/api/:path*/",
+            "destination": "https://2lp48g97uc.execute-api.ap-south-1.amazonaws.com/prod/api/:path*/"
+        },
+        { "source": "/(.*)", "destination": "/index.html" }
+    ]
 }

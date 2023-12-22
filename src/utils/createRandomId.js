@@ -1,8 +1,7 @@
-import random from "random";
+import random from 'random'
 
 const createId = () => {
-  return random.int(0, 1000000).toString(36);
-};
+    return random.int(0, 1000000).toString(36)
+}
 
-
-export default createId;
+export default createId

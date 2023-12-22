@@ -1,5 +1,5 @@
-const removeEscCharsFromCode= (code) => {
-  return code.replace(/\r/g, "");
-};
+const removeEscCharsFromCode = (code) => {
+    return code.replace(/\r/g, '')
+}
 
-export default removeEscCharsFromCode;
+export default removeEscCharsFromCode
