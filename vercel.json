@@ -2,11 +2,11 @@
     "rewrites": [
         {
             "source": "/api/:path*",
-            "destination": "${API_URL}/api/:path*"
+            "destination": "https://yny9crt6j0.execute-api.us-east-1.amazonaws.com/dev/api/:path*"
         },
         {
             "source": "/api/:path*/",
-            "destination": "${API_URL}/api/:path*/"
+            "destination": "https://yny9crt6j0.execute-api.us-east-1.amazonaws.com/dev/api/:path*/"
         },
         { "source": "/(.*)", "destination": "/index.html" }
     ]
