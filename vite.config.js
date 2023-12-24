@@ -1,16 +1,13 @@
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import 'dotenv'
 
-export default defineConfig(({ mode }) => {
-    process.env = { ...process.env, ...loadEnv(mode, process.cwd(), '') }
-
+export default defineConfig(() => {
     return {
         plugins: [react()],
         server: {
             proxy: {
                 '/api': {
-                    target: process.env.AWS_GATEWAY,
+                    target: 'https://yny9crt6j0.execute-api.us-east-1.amazonaws.com/dev/',
                     changeOrigin: true,
                     secure: false,
                 },

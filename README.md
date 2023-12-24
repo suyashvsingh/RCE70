@@ -17,7 +17,7 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://rce70.vercel.app/)
 
-Users can run code on the web without having to install any IDE or text editor. And it's free! The user can also download the code. The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel and Digital Ocean. The app is also containerized using Docker. The app is also serverless, and uses AWS Lamda to run the code.
+Users can run code on the web without having to install any IDE or text editor. And it's free! The user can also download the code. The app currently supports 5 languages, C++, C, Python, Java and Javascript. The app is hosted on Vercel. The app is also serverless, and uses AWS Lamda to run the code.
 
 ## Tools Used
 
@@ -25,13 +25,10 @@ Users can run code on the web without having to install any IDE or text editor. 
 [![Express][express.js]][express-url]
 [![React][react.js]][react-url]
 [![Tailwind][tailwind]][tailwind-url]
-[![Docker][docker]][docker-url]
 [![AWS][aws]][aws-url]
-[![Digital Ocean][digital-ocean]][digital-ocean-url]
 [![Vercel][vercel]][vercel-url]
 [![Vite][vite]][vite-url]
 [![React Router][react-router]][react-router-url]
-[![Firebase][firebase]][firebase-url]
 
 ## Packages Used
 
@@ -102,97 +99,29 @@ https://rce70.vercel.app : Frontend hosted on Vercel, and uses AWS Lamda serverl
 
 ### Installation through Source Code
 
-1. Make sure that you have g++, gcc, python3, nodejs and java installed on your system. Type the following commands in your terminal to check if they are installed.
-
-    ```sh
-    g++ --version
-    gcc --version
-    python3 --version
-    node --version
-    java --version
-    ```
-
-    If required, run the following command to install the required dependencies.
-
-    ```sh
-    sudo apt install -y build-essential nodejs default-jre
-    ```
-
-2. Clone the server repo
-
-    ```sh
-    git clone https://github.com/suyashvsingh/rce70-server.git
-    ```
-
-3. Install NPM packages
-
-    ```sh
-    npm install
-    ```
-
-4. Create a `.env` file and add line `PORT=5000` to it
-
-5. Start the application
-
-    ```sh
-    npm run dev
-    ```
-
-6. Server will run on PORT 5000
-
-7. Clone the client repo
+1. Clone the repository
 
     ```sh
     git clone https://github.com/suyashvsingh/rce70-client.git
     ```
 
-8. Install NPM packages
+2. Install NPM packages
 
     ```sh
     npm install
     ```
 
-9. Start the application
+3. Start the application
 
     ```sh
     npm run dev
     ```
 
-10. Client will run on PORT 5173
+4. Application will run on PORT 5173
 
-11. Write the code, and give any input (if required)
+5. Write the code, and give any input (if required)
 
-12. Run the code using Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
-
-### Installation through Docker Image
-
-1. Make sure Docker is installed
-
-2. Run the command
-
-    ```sh
-    docker compose up
-    ```
-
-3. Application will run on PORT 80
-
-### Installation through Kubernetes
-
-1. Make sure you have _Minikube_ and _kubectl_ installed
-
-2. Run the command
-
-    ```sh
-    kubectl apply -f .
-    ```
-
-3. Run the command
-
-    ```sh
-    minikube service rce70-client
-    ```
-
-4. Application will open in a new browser window
+6. Run the code using Run button or <kbd>Alt</kbd> + <kbd>Enter</kbd> key
 
 ## Team 😃
 
@@ -212,20 +141,14 @@ Made with love by:
 [express-url]: https://expressjs.com/
 [tailwind]: https://img.shields.io/badge/tailwindcss-%2338B2AC.svg?style=for-the-badge&logo=tailwind-css&logoColor=white
 [tailwind-url]: https://tailwindcss.com/
-[docker]: https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white
-[docker-url]: https://www.docker.com/
 [aws]: https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white
 [aws-url]: https://aws.amazon.com/
-[digital-ocean]: https://img.shields.io/badge/DigitalOcean-%230167ff.svg?style=for-the-badge&logo=digitalOcean&logoColor=white
-[digital-ocean-url]: https://www.digitalocean.com/
 [vercel]: https://img.shields.io/badge/vercel-%23000000.svg?style=for-the-badge&logo=vercel&logoColor=white
 [vercel-url]: https://www.vercel.com/
 [vite]: https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white
 [vite-url]: https://vitejs.dev/
 [react-router]: https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white
 [react-router-url]: https://reactrouter.com/en/main
-[firebase]: https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=Firebase&logoColor=white
-[firebase-url]: https://firebase.google.com/
 [c++]: https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white
 [c]: https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white
 [python]: https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54
