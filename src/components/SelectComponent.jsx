@@ -2,10 +2,7 @@ import Select from 'react-select'
 import selectStyle from '../styles/selectStyle'
 import languages from '../data/languages'
 
-const SelectComponent = ({
-    selectedLanguage,
-    setSelectedLanguage,
-}) => {
+const SelectComponent = ({ selectedLanguage, setSelectedLanguage }) => {
     return (
         <Select
             value={selectedLanguage}
